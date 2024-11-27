@@ -11,24 +11,30 @@
 <div class="container">
     <h1>Hogwarts House Sorting</h1>
 
-    <p>What house are you?</p>
-    <div id="gethouse">
-        <button>Get House</button>
+    <div class="image-container">
+        <img src="styles/house-image.jpg" alt="House Image">
     </div>
-    <div>
-        <p id="houseInfo"></p>
+
+    <h2>Find out which house you are!</h2>
+    <div id="gethouse">
+        <button id="btn">Get House!</button>
+    </div>
+    <div class="houseInfo">
+        <p id="houseName"></p>
         <p id="houseAnimal"></p>
         <p id="houseColors"></p>
+        <p id="houseEmoji"></p>
     </div>
 
-    <!-- Output -->
-     <div id="HogwartsHouseDisplay">
-        <img id="HogwartsImage" alt="Hogwarts House Image" hidden>
-        <p id="HogwartsHouse"></p>
-        
-     </div>
+    <h2>Find out which spell to cast!</h2>
+    <div id="getspell">
+        <button id="btn">Cast Spell!</button>
+    </div>
+    <div class="spellInfo">
+        <p id="spellName"></p>
+        <p id="spellUse"></p>
+    </div>
 </div>
-
 
     <script src="script.js"></script>
 </body>

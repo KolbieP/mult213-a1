@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'Harry Potter';
+    src: url('styles/HarryP-MVZ6w.ttf') format('truetype');
+}
+
+html {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    font-size: 18px;
+}
+
+body {
+    text-align: center;
+}
+
+body.Ravenclaw {
+    background-color: #162b69;
+    color: #e6e6e6;
+}
+
+
+body.Gryffindor {
+    background-color: #740001;
+    color: #e6e6e6;
+}
+
+
+body.Slytherin {
+    background-color: #0c5a15;
+    color: #e6e6e6;
+}
+
+
+body.Hufflepuff {
+    background-color: #976d02;
+    color: #e6e6e6;
+}
+
+h1 {
+    text-align: center;
+    font-size: 6em;
+    font-family: 'Harry Potter', sans-serif;
+    margin: 20px 0; 
+    padding: 0.25em;
+}
+
+h2 {
+    font-size: 3em;
+    font-family: 'Harry Potter', sans-serif;
+    padding: 0.25em;
+}
+
+.image-container {
+    text-align: center; 
+}
+
+.image-container img {
+    width: 350px; /* 700 x 394 was original image size*/
+    height: 197px; 
+    border-radius: 15px;
+}
+
+#btn {
+    background-color: #737373;
+    color: #ffffff;
+    font-size: 18px;
+    border: none;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#btn:hover {
+    background-color: #4d4d4d;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+.houseInfo {
+    padding: 1em;
+}
+
+.spellInfo {
+    padding: 1em;
+}
