@@ -82,6 +82,7 @@ const displaySpell = (spellName) => {
 
 
 //-------------------------------------------------------------------------------------------------------------------------------------
+
 //Finds the form and calls the fetchbook function
 document.getElementById('bookForm').addEventListener('submit', event => {
     event.preventDefault(); // Prevent the form from reloading the page
@@ -100,7 +101,7 @@ const fetchBook = (bookNumber) => {
     })
     .then(data => {
         console.log(data);
-        // If book number is valid, display the book. If not then throw error
+        // If book number is valid, display the book. If not then throw alert
         if (bookNumber >= 1 && bookNumber <= data.length) {
             displayBook(data[bookNumber - 1]); // Adjusting for 0-based index
         } else {
