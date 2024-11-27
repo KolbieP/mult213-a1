@@ -16,11 +16,12 @@ fetch('https://potterapi-fedeperin.vercel.app/es/spells?')
 
 let hogwarts_id = -1;
 
+
 // Form Submission
 document.getElementById('hogwartsForm').addEventListener('submit', event => {
     event.preventDefault(); // Prevent the form from reloading the page
     const hogwartsName = document.getElementById('hogwartsName').value.trim().toLowerCase();
-    fetchPokemon(hogwartsName);
+    fetchHouse(hogwartsName);
 });
 
 
@@ -30,13 +31,13 @@ document.querySelector("#gethouse").addEventListener('click', event => {
     if(hogwarts_id < 0) {
         console.log('Something went wrong!'); 
     } else {
-        fetchPokemon(hogwarts_id + 1);
-        console.log(hogwarts_id + 1);
+        fetchHouse(hogwarts_id);
+        console.log(hogwarts_id);
     }
 });
     
-const fetchPokemon = (name) => {
-    // Using a promise to fetch the Pokémon data
+const fetchHouse = (name) => {
+    // Using a promise to fetch the Hogwarts data
     // https://pokeapi.co/api/v2/pokemon/pikachu for example
     fetch(`https://potterapi-fedeperin.vercel.app/en/houses`)
         .then(response => {
@@ -47,7 +48,7 @@ const fetchPokemon = (name) => {
         })
         .then(data => {
             console.log(data);
-            displayPokemon(data);
+            HogwartsHouseDisplay(data);
         })
         .catch(error => {
             console.log(error);
@@ -60,6 +61,6 @@ const HogwartsHouseDisplay = (hogwarts) => {
     // Display the Hogwarts House data
     document.getElementById('HogwartsImage').src = emoji;
     document.getElementById('HogwartsImage').hidden = false;
-    document.getElementById('pokemonInfo').textContent = `#${pokemon.id} ${pokemon.name} ${pokemon.height}`;
+    document.getElementById('HogwartsInfo').textContent = `#${hogwarts.house} ${hogwarts.colors} ${hogwarts.animal}`;
 }
     
