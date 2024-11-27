@@ -1,42 +1,14 @@
-
-// Form Submission
-document.getElementById('hogwartsForm').addEventListener('submit', event => {
-    event.preventDefault(); // Prevent the form from reloading the page
-    const houseName = document.getElementById('houseName').value.trim().toLowerCase();
-    fetchHouse(houseName);
+//When button is clicked it runs the function fetchHouse()
+document.querySelector("#gethouse button").addEventListener('click', event => {
+    console.log('House Button was Clicked');
+    fetchHouse();
 });
 
-/*
-document.querySelector("#forward").addEventListener('click', event => {
-    console.log('forward button was clicked');
-    // fetch pokemon that is +1 from id
-    if(pokemon_id < 0) {
-        console.log('please search for a pokemon first');
-    } else {
-        fetchPokemon(pokemon_id + 1);
-        console.log(pokemon_id + 1);
-    }
-});
-
-
-document.querySelector("#back").addEventListener('click', event => {
-    console.log('back button was clicked');
-    // fetch pokemon that is -1 from id
-    if(pokemon_id < 0) {
-        console.log('please search for a pokemon first');
-    } else {
-        console.log(pokemon_id);
-        fetchPokemon(pokemon_id - 1);
-
-    }
-});
-
-*/
-
-const fetchHouse = (houseName) => {
-    // Using a promise to fetch the Pokémon data
-    // https://pokeapi.co/api/v2/pokemon/pikachu for example
-    //fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+//When button is called it calls this function
+//This function calls the API
+//
+const fetchHouse = () => {
+    // Using a promise to fetch the Hogwards Houses
     //fetch(`https://potterapi-fedeperin.vercel.app/en/${houseName}`)
     fetch(`https://potterapi-fedeperin.vercel.app/en/houses`)
         .then(response => {
@@ -47,7 +19,10 @@ const fetchHouse = (houseName) => {
         })
         .then(data => {
             console.log(data);
-            displayHouse(data);
+             // Generate a random index between 0 and 3
+            const randomIndex = Math.floor(Math.random() * 4);
+            // Call the API with the randomly selected index
+            displayHouse(data[randomIndex]);
         })
         .catch(error => {
             console.log(error);
@@ -55,11 +30,13 @@ const fetchHouse = (houseName) => {
 }
 
 const displayHouse = (houseName) => {
-    house_id = house.id;
-    // Display the Pokémon data
+    // Display the Hogwarts House data
     //document.getElementById('houseImage').src = emoji;
     //document.getElementById('houseImage').hidden = false;
-    document.getElementById('houseInfo').textContent = `#${houseName.house} ${houseName.animal} ${houseName.colors}`;
+    document.getElementById('houseInfo').textContent = `${houseName.emoji}`;
+    document.getElementById('houseInfo').textContent = `${houseName.house}`;
+    document.getElementById('houseAnimal').textContent = `${houseName.animal}`;
+    document.getElementById('houseColors').textContent = `${houseName.colors[0]} ${houseName.colors[1]}`;
 }
 
 
