@@ -81,3 +81,19 @@ h2 {
 .spellInfo {
     padding: 1em;
 }
+
+.bookInfo {
+    padding: 1em;
+}
+
+#bookTitle {
+    font-size: 2em;
+    font-family: 'Harry Potter', sans-serif;
+    padding: 0.25em;
+}
+
+#bookDescription {
+    max-width: 60%; /* Adjust the value as needed */
+    margin: 0 auto; /* Center the paragraph */
+    padding-bottom: 1em;
+}

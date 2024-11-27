@@ -41,6 +41,7 @@ const customizeHouse = (houseName) => {
     document.querySelector("body").classList = [houseName.house];
 }
     
+//-------------------------------------------------------------------------------------------------------------------------------------
 
 
 //When button is clicked it runs the function fetchHouse()
@@ -77,4 +78,48 @@ const displaySpell = (spellName) => {
     // Display the Spell data
     document.getElementById('spellName').textContent = `${spellName.spell}`;
     document.getElementById('spellUse').textContent = `Spells Use: ${spellName.use}`;
+}
+
+
+//-------------------------------------------------------------------------------------------------------------------------------------
+//Finds the form and calls the fetchbook function
+document.getElementById('bookForm').addEventListener('submit', event => {
+    event.preventDefault(); // Prevent the form from reloading the page
+    const bookNumber = parseInt(document.getElementById('bookNumber').value, 10);
+    fetchBook(bookNumber);
+});
+
+//Fetch the book
+const fetchBook = (bookNumber) => {
+    fetch('https://potterapi-fedeperin.vercel.app/en/books')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Error fetching data");
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+        // If book number is valid, display the book. If not then throw error
+        if (bookNumber >= 1 && bookNumber <= data.length) {
+            displayBook(data[bookNumber - 1]); // Adjusting for 0-based index
+        } else {
+            console.log("Invalid book number");
+            alert("Invalid Input. Try again with a number 1-8")
+        }
+    })
+    .catch(error => {
+        console.log(error);
+    });
+}
+
+//Displays the book and its infromation 
+const displayBook = (bookNumber) => {
+    // Display the Book data and cover
+    document.getElementById('bookTitle').textContent = `${bookNumber.title}`;
+    document.getElementById('bookDescription').textContent = `${bookNumber.description}`;
+    document.getElementById('bookTitle').textContent = `${bookNumber.title}`;
+    document.getElementById('bookImage').src = bookNumber.cover;
+    document.getElementById('bookImage').hidden = false;
+
 }
