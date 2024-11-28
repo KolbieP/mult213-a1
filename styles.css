@@ -59,7 +59,7 @@ h2 {
     border-radius: 15px;
 }
 
-#btn {
+#housebtn {
     background-color: #737373;
     color: #ffffff;
     font-size: 18px;
@@ -69,7 +69,37 @@ h2 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-#btn:hover {
+#housebtn:hover {
+    background-color: #4d4d4d;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+#spellbtn {
+    background-color: #737373;
+    color: #ffffff;
+    font-size: 18px;
+    border: none;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#spellbtn:hover {
+    background-color: #4d4d4d;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+#bookbtn {
+    background-color: #737373;
+    color: #ffffff;
+    font-size: 18px;
+    border: none;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#bookbtn:hover {
     background-color: #4d4d4d;
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
 }
