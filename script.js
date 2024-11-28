@@ -37,9 +37,35 @@ const displayHouse = (houseName) => {
 }
 
 
+//This makes it so the h1 also changes depending on the house
 const customizeHouse = (houseName) => {
-    document.querySelector("body").classList = [houseName.house];
-}
+    const body = document.querySelector("body");
+    const h1 = document.querySelector("h1");
+    
+    // Remove any existing house class
+    body.className = '';
+
+    // Add the new house class
+    body.classList.add(houseName.house);
+
+    // Change the h1 color based on the house
+    switch (houseName.house) {
+        case 'Ravenclaw':
+            h1.style.color = '#ffd900';
+            break;
+        case 'Gryffindor':
+            h1.style.color = '#d3a625';
+            break;
+        case 'Slytherin':
+            h1.style.color = '#aaaaaa';
+            break;
+        case 'Hufflepuff':
+            h1.style.color = '#262626';
+            break;
+        default:
+            h1.style.color = '#000000'; // Default color
+    }
+};
     
 //-------------------------------------------------------------------------------------------------------------------------------------
 
